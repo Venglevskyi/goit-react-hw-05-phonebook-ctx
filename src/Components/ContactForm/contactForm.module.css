@@ -13,7 +13,7 @@
   display: inline-block;
   margin-bottom: 16px;
   font-size: 18px;
-  color: #171718;
+  color: inherit;
   cursor: pointer;
 }
 

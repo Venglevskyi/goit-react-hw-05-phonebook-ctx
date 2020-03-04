@@ -1,7 +1,23 @@
 import React from "react";
-import "./layout.css";
+import PropTypes from "prop-types";
 import withThemeContext from "../../hoc/withThemeContext";
 
-const Layout = ({ children, config }) => <div className="Layout" style={{background: config.bodybg, color: config.fontColor}}>{children}</div>;
+import styles from "./layout.module.css";
+
+const Layout = ({ children, config }) => (
+  <div
+    className={styles.Layout}
+    style={{ background: config.bodybg, color: config.fontColor }}
+  >
+    {children}
+  </div>
+);
+
+Layout.propTypes = {
+  config: PropTypes.shape({
+    bodybg: PropTypes.string.isRequired,
+    fontColor: PropTypes.string.isRequired
+  })
+};
 
 export default withThemeContext(Layout);
