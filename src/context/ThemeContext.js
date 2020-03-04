@@ -24,22 +24,6 @@ export default class ThemeContext extends Component {
 
   state = { theme: "light", toggleTheme: this.toggleTheme };
 
-  componentDidMount() {
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-      this.setState({
-        theme: JSON.parse(savedTheme)
-      });
-    }
-  }
-
-  componentDidUpdate(prevState) {
-    if (prevState.theme !== this.state.theme) {
-      localStorage.setItem("theme", JSON.stringify(this.state.theme));
-    }
-  }
-
   render() {
     return (
       <Context.Provider
