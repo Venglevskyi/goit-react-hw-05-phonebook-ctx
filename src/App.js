@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import uuid from "uuid";
+import uuid from "../node_modules/uuid/v3";
 import styles from "./base.module.css";
 
 import Layout from "./Components/Layout/Layout";
