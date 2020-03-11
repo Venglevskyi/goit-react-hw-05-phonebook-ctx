@@ -22,16 +22,15 @@ export default class ThemeContext extends Component {
     }));
   };
 
-  state = { theme: "light", toggleTheme: this.toggleTheme };
+  state = {
+    theme: "light",
+    toggleTheme: this.toggleTheme,
+    config: themeConfig
+  };
 
   render() {
     return (
-      <Context.Provider
-        value={{
-          type: this.state,
-          config: themeConfig[this.state.theme]
-        }}
-      >
+      <Context.Provider value={this.state}>
         {this.props.children}
       </Context.Provider>
     );

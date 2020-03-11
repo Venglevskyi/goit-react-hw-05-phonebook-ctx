@@ -4,19 +4,31 @@ import withThemeContext from "../../hoc/withThemeContext";
 
 import styles from "./layout.module.css";
 
-const Layout = ({ children, config }) => (
+const Layout = ({ children, theme: { theme, config } }) => (
   <div
     className={styles.Layout}
-    style={{ background: config.bodybg, color: config.fontColor }}
+    style={{
+      background: config[theme].bodybg,
+      color: config[theme].fontColor
+    }}
   >
     {children}
   </div>
 );
 
 Layout.propTypes = {
-  config: PropTypes.shape({
-    bodybg: PropTypes.string.isRequired,
-    fontColor: PropTypes.string.isRequired
+  theme: PropTypes.shape({
+    theme: PropTypes.string.isRequired,
+    config: PropTypes.exact({
+      light: PropTypes.exact({
+        bodybg: PropTypes.string.isRequired,
+        fontColor: PropTypes.string.isRequired
+      }),
+      dark: PropTypes.exact({
+        bodybg: PropTypes.string.isRequired,
+        fontColor: PropTypes.string.isRequired
+      })
+    })
   })
 };
 
